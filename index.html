@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Kandé Hawa Simakha</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(236, 72, 153, 0.5); }
+      50% { box-shadow: 0 0 40px rgba(236, 72, 153, 0.8); }
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .animate-pulse-glow {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    
+    /* Gradient text */
+    .text-gradient {
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #111827;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      border-radius: 4px;
+    }
+    
+    /* Glassmorphism */
+    .glass {
+      background: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(236, 72, 153, 0.2);
+    }
+    
+    /* Skill bar animation */
+    .skill-bar {
+      width: 0;
+      transition: width 1.5s ease-out;
+    }
+    
+    .skill-bar.animate {
+      width: var(--target-width);
+    }
+    
+    /* Menu mobile */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+    
+    /* Background pattern */
+    .bg-pattern {
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    }
+    
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Hero section gradient overlay */
+    .hero-gradient {
+      background: 
+        radial-gradient(ellipse at top, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-950 text-white scroll-smooth overflow-x-hidden">
+
+<!-- HEADER -->
+<header class="fixed w-full z-50 transition-all duration-300" id="navbar">
+  <nav class="container mx-auto flex justify-between items-center p-4">
+    <h1 class="text-2xl font-bold text-gradient cursor-pointer">KHS</h1>
+
+    <!-- Menu Desktop -->
+    <ul class="flex space-x-8 font-medium">
+      <li><a href="#home" class="hover:text-pink-500 transition-colors duration-300 relative group">
+        Accueil
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+      </a></li>
+      <li><a href="#about" class="hover:text-pink-500 transition-colors duration-300 relative group">
+        À propos
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+      </a></li>
+      <li><a href="#experience" class="hover:text-pink-500 transition-colors duration-300 relative group">
+        Expérience
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+      </a></li>
+      <li><a href="#projects" class="hover:text-pink-500 transition-colors duration-300 relative group">
+        Projets
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+      </a></li>
+      <li><a href="#contact" class="hover:text-pink-500 transition-colors duration-300 relative group">
+        Contact
+        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+      </a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="home" class="min-h-screen flex items-center justify-center text-center px-6 hero-gradient bg-pattern relative overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="absolute top-20 left-10 w-72 h-72 bg-pink-500/10 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+  
+  <div class="relative z-10">
+    <div class="animate-float mb-6">
+      <img src="WhatsApp Image 2026-02-13 at 08.30.16.jpeg"  
+           alt="Photo de Kandé Hawa Simakha"
+           class="w-44 h-44 mx-auto rounded-full object-cover border-4 border-pink-500 shadow-2xl animate-pulse-glow">
+    </div>
+
+    <h2 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up">
+      <span class="text-gradient">Kandé Hawa Simakha</span>
+    </h2>
+
+    <p class="text-lg md:text-xl mb-8 text-gray-300 animate-fade-in-up" style="animation-delay: 0.2s;">
+      Développeuse Web Frontend passionnée par les interfaces modernes et responsives
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.4s;">
+      <a href="#projects" class="bg-gradient-to-r from-pink-500 to-purple-600 px-8 py-3 rounded-full font-semibold hover:from-pink-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-pink-500/50 transform hover:scale-105">
+        Voir mes projets
+      </a>
+      <a href="#contact" class="border-2 border-pink-500 px-8 py-3 rounded-full font-semibold hover:bg-pink-500 hover:text-white transition-all duration-300">
+        Me contacter
+      </a>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a href="#about" class="text-pink-500 text-2xl">
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- À PROPOS -->
+<section id="about" class="py-24 px-6 bg-gray-900/50 relative">
+  <div class="container mx-auto text-center max-w-3xl">
+    <h2 class="text-4xl font-bold mb-8 text-gradient">À propos de moi</h2>
+    <div class="glass p-8 rounded-2xl">
+      <p class="text-gray-300 leading-relaxed text-lg">
+        Étudiante en <span class="text-pink-500 font-semibold">Génie Informatique</span> à 
+        <span class="text-purple-500 font-semibold">UNIPRO</span>, je suis spécialisée dans le 
+        développement web frontend. Je conçois des interfaces modernes, responsives et accessibles 
+        en utilisant les dernières technologies comme <span class="text-pink-500">HTML</span>, 
+        <span class="text-purple-500">Tailwind CSS</span> et <span class="text-pink-500">JavaScript</span>.
+        <br><br>
+        Mon objectif : créer des <span class="text-white font-semibold">expériences utilisateurs</span> 
+        élégantes, rapides et professionnelles qui marquent les esprits.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATION -->
+<section class="py-24 px-6">
+  <div class="container mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-12 text-gradient">Formation</h2>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <!-- Licence 1 -->
+      <div class="glass p-8 rounded-2xl hover:scale-105 transition-all duration-300 hover:shadow-pink-500/30">
+        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center">
+          <i class="fas fa-graduation-cap text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2 text-white">Génie Informatique - Licence 1</h3>
+        <p class="text-gray-400">UNIPRO | 2024 - 2025</p>
+        <div class="mt-4 flex justify-center gap-2">
+          <span class="px-3 py-1 bg-pink-500/20 rounded-full text-pink-400 text-sm">Informatique</span>
+          <span class="px-3 py-1 bg-purple-500/20 rounded-full text-purple-400 text-sm">Bases</span>
+        </div>
+      </div>
+
+      <!-- Licence 2 -->
+      <div class="glass p-8 rounded-2xl hover:scale-105 transition-all duration-300 hover:shadow-pink-500/30">
+        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center">
+          <i class="fas fa-graduation-cap text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2 text-white">Génie Informatique - Licence 2</h3>
+        <p class="text-gray-400">UNIPRO | 2025 - 2026</p>
+        <div class="mt-4 flex justify-center gap-2">
+          <span class="px-3 py-1 bg-pink-500/20 rounded-full text-pink-400 text-sm">Informatique</span>
+          <span class="px-3 py-1 bg-purple-500/20 rounded-full text-purple-400 text-sm">Développement Web</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPÉRIENCE -->
+<section id="experience" class="py-24 px-6 bg-gray-900/50">
+  <div class="container mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12 text-gradient">
+      Expériences
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Expérience 1 -->
+      <div class="glass p-8 rounded-2xl hover:scale-105 transition-all duration-300 group">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl flex items-center justify-center mr-4 group-hover:rotate-12 transition-transform">
+            <i class="fas fa-shopping-cart text-xl"></i>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg text-white">Site E-commerce</h3>
+            <p class="text-pink-500 text-sm">Projet Personnel</p>
+          </div>
+        </div>
+        <ul class="text-gray-400 space-y-2">
+          <li class="flex items-start">
+            <i class="fas fa-check text-pink-500 mt-1 mr-2"></i>
+            <span>Création d'une plateforme de vente en ligne moderne et responsive</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check text-pink-500 mt-1 mr-2"></i>
+            <span>Intégration dynamique des produits avec JavaScript</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check text-pink-500 mt-1 mr-2"></i>
+            <span>Optimisation pour mobile et performances</span>
+          </li>
+        </ul>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300">HTML</span>
+          <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300">Tailwind</span>
+          <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300">JavaScript</span>
+        </div>
+      </div>
+
+      <!-- Expérience 2 -->
+      <div class="glass p-8 rounded-2xl hover:scale-105 transition-all duration-300 group">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mr-4 group-hover:rotate-12 transition-transform">
+            <i class="fas fa-tasks text-xl"></i>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg text-white">Application de Gestion</h3>
+            <p class="text-purple-500 text-sm">Projet Personnel</p>
+          </div>
+        </div>
+        <ul class="text-gray-400 space-y-2">
+          <li class="flex items-start">
+            <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
+            <span>Interface interactive avec gestion complète des données</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
+            <span>Manipulation du DOM et gestion des formulaires</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
+            <span>Validation des données et interfaces modernes</span>
+          </li>
+        </ul>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300">JavaScript</span>
+          <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300">DOM</span>
+          <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300">Forms</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section class="py-24 px-6">
+  <div class="container mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-12 text-gradient">Compétences</h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      <!-- Compétence 1 -->
+      <div class="group relative">
+        <div class="glass p-6 rounded-2xl hover:bg-gradient-to-r hover:from-pink-500 hover:to-purple-600 transition-all duration-300 hover:scale-110 cursor-pointer">
+          <i class="fab fa-html5 text-4xl mb-3 text-orange-500 group-hover:text-white transition-colors"></i>
+          <p class="font-semibold">HTML5</p>
+        </div>
+      </div>
+
+      <!-- Compétence 2 -->
+      <div class="group">
+        <div class="glass p-6 rounded-2xl hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-600 transition-all duration-300 hover:scale-110 cursor-pointer">
+          <i class="fab fa-css3-alt text-4xl mb-3 text-cyan-400 group-hover:text-white transition-colors"></i>
+          <p class="font-semibold">CSS3</p>
+        </div>
+      </div>
+
+      <!-- Compétence 3 -->
+      <div class="group">
+        <div class="glass p-6 rounded-2xl hover:bg-gradient-to-r hover:from-pink-500 hover:to-purple-600 transition-all duration-300 hover:scale-110 cursor-pointer">
+          <i class="fab fa-js text-4xl mb-3 text-yellow-400 group-hover:text-white transition-colors"></i>
+          <p class="font-semibold">JavaScript</p>
+        </div>
+      </div>
+
+      <!-- Compétence 4 -->
+      <div class="group">
+        <div class="glass p-6 rounded-2xl hover:bg-gradient-to-r hover:from-teal-500 hover:to-green-600 transition-all duration-300 hover:scale-110 cursor-pointer">
+          <i class="fab fa-tailwind text-4xl mb-3 text-teal-400 group-hover:text-white transition-colors"></i>
+          <p class="font-semibold">Tailwind</p>
+        </div>
+      </div>
+
+      <!-- Compétence 5 -->
+      <div class="group">
+        <div class="glass p-6 rounded-2xl hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-600 transition-all duration-300 hover:scale-110 cursor-pointer">
+          <i class="fab fa-git-alt text-4xl mb-3 text-orange-600 group-hover:text-white transition-colors"></i>
+          <p class="font-semibold">Git</p>
+        </div>
+      </div>
+
+      <!-- Compétence 6 -->
+      <div class="group">
+        <div class="glass p-6 rounded-2xl hover:bg-gradient-to-r hover:from-gray-600 hover:to-gray-800 transition-all duration-300 hover:scale-110 cursor-pointer">
+          <i class="fab fa-github text-4xl mb-3 text-gray-300 group-hover:text-white transition-colors"></i>
+          <p class="font-semibold">GitHub</p>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projects" class="py-24 px-6 bg-gray-900/50">
+  <div class="container mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12 text-gradient">
+      Mes Projets
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Projet 1 -->
+      <div class="glass rounded-2xl overflow-hidden group hover:scale-105 transition-all duration-300">
+        <div class="h-48 bg-gradient-to-r from-pink-500/20 to-purple-500/20 flex items-center justify-center">
+          <i class="fas fa-shopping-bag text-6xl text-pink-500 group-hover:scale-110 transition-transform"></i>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2 text-white group-hover:text-pink-500 transition-colors">
+            Plateforme E-commerce
+          </h3>
+          <p class="text-gray-400 mb-4">
+            Site de vente en ligne avec design moderne et responsive. 
+            Fonctionnalités : gestion du panier, paiement, interface admin.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 bg-pink-500/20 rounded-full text-pink-400 text-sm">Tailwind</span>
+            <span class="px-3 py-1 bg-pink-500/20 rounded-full text-pink-400 text-sm">JavaScript</span>
+          </div>
+          <a href="#" class="inline-flex items-center text-pink-500 font-semibold hover:underline">
+            Voir le projet <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Projet 2 -->
+      <div class="glass rounded-2xl overflow-hidden group hover:scale-105 transition-all duration-300">
+        <div class="h-48 bg-gradient-to-r from-purple-500/20 to-blue-500/20 flex items-center justify-center">
+          <i class="fas fa-user-cog text-6xl text-purple-500 group-hover:scale-110 transition-transform"></i>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2 text-white group-hover:text-purple-500 transition-colors">
+            Application de Gestion
+          </h3>
+          <p class="text-gray-400 mb-4">
+            Application web interactive pour la gestion de données avec 
+            validation de formulaires et tableaux de bord analytiques.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 bg-purple-500/20 rounded-full text-purple-400 text-sm">JavaScript</span>
+            <span class="px-3 py-1 bg-purple-500/20 rounded-full text-purple-400 text-sm">DOM</span>
+          </div>
+          <a href="#" class="inline-flex items-center text-purple-500 font-semibold hover:underline">
+            Voir le projet <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div> 
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 px-6 relative overflow-hidden">
+  <!-- Background decorations -->
+  <div class="absolute top-0 left-0 w-full h-full bg-pattern"></div>
+  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl"></div>
+  
+  <div class="container mx-auto text-center relative z-10">
+    <h2 class="text-4xl font-bold mb-8 text-gradient">Me Contacter</h2>
+    
+    <div class="max-w-2xl mx-auto glass p-8 rounded-2xl">
+      <p class="text-gray-300 mb-8 text-lg">
+        Vous avez un projet en tête ou souhaitez simplement échanger ? 
+        N'hésitez pas à me contacter !
+      </p>
+
+      <div class="space-y-4 mb-8">
+        <div class="flex items-center justify-center space-x-4 text-gray-300">
+          <i class="fas fa-envelope text-pink-500 text-xl"></i>
+          <a href="mailto:hawasimakha@gmail.com" class="hover:text-pink-500 transition-colors">
+            hawasimakha@gmail.com
+          </a>
+        </div>
+        <div class="flex items-center justify-center space-x-4 text-gray-300">
+          <i class="fas fa-phone text-pink-500 text-xl"></i>
+          <a href="tel:+221770889936" class="hover:text-pink-500 transition-colors">
+            +221 77 088 99 36
+          </a>
+        </div>
+      </div>
+
+      <!-- Réseaux sociaux -->
+      <div class="flex justify-center space-x-6 mb-8">
+        <!-- Instagram -->
+        <a href="https://email.com" target="_blank" 
+           class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-pink-500 hover:to-purple-600 transition-all duration-300 hover:scale-110">
+          <img src="téléchargement (1).png" alt="email" class="w-6 h-6 object-contain">
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com" target="_blank" 
+           class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-700 transition-all duration-300 hover:scale-110">
+          <img src="téléchargement (2).jpg" alt="LinkedIn" class="w-7 h-7 object-contain">
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com" target="_blank" 
+           class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-gray-700 hover:to-gray-900 transition-all duration-300 hover:scale-110">
+          <img src="téléchargement (3).jpg" alt="GitHub" class="w-7 h-7 object-contain">
+        </a>
+      </div>
+
+      <a href="mailto:hawasimakha@gmail.com"
+         class="inline-block bg-gradient-to-r from-pink-500 to-purple-600 px-8 py-3 rounded-full font-semibold hover:from-pink-600 hover:to-purple-700 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-pink-500/50">
+         Envoyer un message
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 border-t border-pink-500/20 text-center py-6">
+  <div class="container mx-auto">
+    <p class="text-gray-400">
+      © 2025 <span class="text-gradient font-semibold">Kandé Hawa Simakha</span> - Tous droits réservés
+    </p>
+    <p class="text-gray-500 text-sm mt-2">
+      Développeuse Web Frontend
+    </p>
+  </div>
+</footer>
+
+<!-- Script pour les animations et menu mobile -->
+<script>
+  // Menu mobile
+  const menuBtn = document.getElementById('menu-btn');
+  const closeMenu = document.getElementById('close-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.add('active');
+    menuIcon.classList.remove('fa-bars');
+    menuIcon.classList.add('fa-times');
+  });
+
+  closeMenu.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+    menuIcon.classList.remove('fa-times');
+    menuIcon.classList.add('fa-bars');
+  });
+
+  // Fermer le menu quand on clique sur un lien
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      menuIcon.classList.remove('fa-times');
+      menuIcon.classList.add('fa-bars');
+    });
+  });
+
+  // Navbar changement de背景 au scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('glass');
+    } else {
+      navbar.classList.remove('glass');
+    }
+  });
+
+  // Animation d'apparition au scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-fade-in-up');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('section > div').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
